@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/splitter" name="SplitterAPI" xmlns="http://ws.apache.org/ns/synapse">
+    <resource methods="POST" uri-template="/user">
+        <inSequence>
+            <log level="full">
+                <property name="message" value="This is test splitter"/>
+            </log>
+            <iterate continueParent="true" expression="json-eval($.users)" id="iterate-over-users">
+                <target>
+                    <sequence>
+                        <log level="custom">
+                            <property expression="json-eval($.name)" name="user-name"/>
+                            <property expression="json-eval($.id)" name="user-id"/>
+                        </log>
+                    </sequence>
+                </target>
+            </iterate>
+            <payloadFactory media-type="json">
+                <format>{
+  "subject": "Data Splitter",
+  "message": "Incoming message successfully iterated",
+  "trace-id": "2025-04-02"
+}</format>
+                <args/>
+            </payloadFactory>
+            <respond/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </resource>
+</api>

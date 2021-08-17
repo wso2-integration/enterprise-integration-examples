@@ -1,0 +1,16 @@
+curl --location --request POST 'https://localhost:8243/healthcare/categories/surgery/reserve' \
+--header 'Content-Type: application/json' \
+--header 'Cookie: SESS8838e0891743c085d429d0e125ec4d58=Uh6bRKuMU_gplRtaJCDoR-i8_Qaez6sS8e1Zg6wSgVI' \
+--data-raw '{
+  "patient": {
+    "name": "John Doe",
+    "dob": "1940-03-19",
+    "ssn": "234-23-525",
+    "address": "California",
+    "phone": "8770586755",
+    "email": "johndoe@gmail.com"
+  },
+  "doctor": "thomas collins",
+  "hospital": "grand oak community hospital",
+  "appointment_date": "2025-04-02"
+}'

@@ -1,0 +1,12 @@
+Success
+
+curl --location --request GET 'http://localhost:8280/healthcare/v1/categories/surgery' \
+--header 'Content-Type: application/json' \
+--header 'Cookie: SESS8838e0891743c085d429d0e125ec4d58=Uh6bRKuMU_gplRtaJCDoR-i8_Qaez6sS8e1Zg6wSgVI'
+
+
+Error
+
+curl --location --request GET 'http://localhost:8280/healthcare/v1/categories/ent' \
+--header 'Content-Type: application/json' \
+--header 'Cookie: SESS8838e0891743c085d429d0e125ec4d58=Uh6bRKuMU_gplRtaJCDoR-i8_Qaez6sS8e1Zg6wSgVI'
