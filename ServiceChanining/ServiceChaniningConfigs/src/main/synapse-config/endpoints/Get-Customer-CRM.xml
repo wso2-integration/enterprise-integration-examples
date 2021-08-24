@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<endpoint name="Get-Customer-CRM" xmlns="http://ws.apache.org/ns/synapse">
+    <http uri-template="https://7556e6e9-594c-4b55-8bec-1c5dd01dfc31.mock.pstmn.io">
+        <suspendOnFailure>
+            <initialDuration>-1</initialDuration>
+            <progressionFactor>1.0</progressionFactor>
+        </suspendOnFailure>
+        <markForSuspension>
+            <retriesBeforeSuspension>0</retriesBeforeSuspension>
+        </markForSuspension>
+    </http>
+</endpoint>
