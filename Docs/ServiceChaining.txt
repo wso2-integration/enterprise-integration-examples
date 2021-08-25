@@ -1,0 +1,32 @@
+Mock CRM Backend
+
+curl --location --request GET 'https://728ffb30-41d4-4261-9786-0f2d53f18e79.mock.pstmn.io/crm/user/1'
+
+{
+    "name": "John",
+    "age": 20,
+    "email": "john@abc.com"
+}
+
+-----------------------------------------------------------------------------------------------------------
+
+Mock SalesForce Backend
+
+curl --location --request GET 'https://728ffb30-41d4-4261-9786-0f2d53f18e79.mock.pstmn.io/salesforce/user/1'
+
+{
+    "name": "John",
+    "age": 20,
+    "email": "john@abc.com",
+    "product": "WSO2 API Manager",
+    "purchase": "2021/08/20",
+    "price": "$2000"
+}
+
+-----------------------------------------------------------------------------------------------------------
+
+NOTE: You have to create two backends like above
+
+Final API
+
+curl --location --request GET 'http://192.168.1.109:8280/api/customer/get/1'

@@ -1,0 +1,75 @@
+<data name="RESTDataService" serviceNamespace="http://ws.wso2.org/dataservice/samples/json_sample" transports="http https">
+  <description>Exposing the data service as a REST service.</description>
+  <config id="WSO2INTEGRATIONDB">
+    <property name="driverClassName">com.mysql.jdbc.Driver</property>
+    <property name="url">jdbc:mysql://localhost:3306/Employees</property>
+    <property name="username">isuru</property>
+    <property name="password">1qaz2wsx@A</property>
+  </config>
+   <query id="AddEmployee" useConfig="WSO2INTEGRATIONDB">
+      <sql>insert into Employees (EmployeeNumber, FirstName, LastName, Email, Salary) values(:employeeNumber,:firstName,:lastName,:email,:salary)</sql>
+      <param name="employeeNumber" optional="false" paramType="SCALAR" sqlType="STRING" type="IN"/>
+      <param name="firstName" optional="false" paramType="SCALAR" sqlType="STRING" type="IN"/>
+      <param name="lastName" optional="false" paramType="SCALAR" sqlType="STRING" type="IN"/>
+      <param name="email" optional="false" paramType="SCALAR" sqlType="STRING" type="IN"/>
+      <param name="salary" optional="false" paramType="SCALAR" sqlType="STRING" type="IN"/>
+   </query>
+   <query id="GetEmployee" useConfig="WSO2INTEGRATIONDB">
+      <sql>select EmployeeNumber, FirstName, LastName, Email, Salary from Employees where EmployeeNumber=:employeeNumber</sql>
+      <param name="employeeNumber" optional="false" paramType="SCALAR" sqlType="STRING" type="IN"/>
+      <result element="Employees" rowName="Employee">
+         <element column="EmployeeNumber" name="employeeNumber" xsdType="xs:string"/>
+         <element column="FirstName" name="firstName" xsdType="xs:string"/>
+         <element column="LastName" name="lastName" xsdType="xs:string"/>
+         <element column="Email" name="email" xsdType="xs:string"/>
+         <element column="Salary" name="salary" xsdType="xs:string"/>
+      </result>
+   </query>
+    <query id="GetEmployees" useConfig="WSO2INTEGRATIONDB">
+      <sql>select EmployeeNumber, FirstName, LastName, Email, Salary from Employees</sql>
+      <result element="Employees" rowName="Employee">
+         <element column="EmployeeNumber" name="employeeNumber" xsdType="xs:string"/>
+         <element column="FirstName" name="firstName" xsdType="xs:string"/>
+         <element column="LastName" name="lastName" xsdType="xs:string"/>
+         <element column="Email" name="email" xsdType="xs:string"/>
+         <element column="Salary" name="salary" xsdType="xs:string"/>
+      </result>
+   </query>
+   <query id="UpdateEmployee" useConfig="WSO2INTEGRATIONDB">
+        <param name="employeeNumber" paramType="SCALAR" sqlType="STRING"/>
+        <sql>update Employees set FirstName=:firstName, LastName=:lastName, Email=:email, Salary=:salary where EmployeeNumber=:employeeNumber</sql>
+        <param name="firstName" paramType="SCALAR" sqlType="STRING"/>
+        <param name="lastName" paramType="SCALAR" sqlType="STRING"/>
+        <param name="email" paramType="SCALAR" sqlType="STRING"/>
+        <param name="salary" paramType="SCALAR" sqlType="STRING"/>
+    </query>
+   <resource method="POST" path="/employee">
+      <description>Add Employee</description>
+      <call-query href="AddEmployee">
+         <with-param name="employeeNumber" query-param="employeeNumber"/>
+         <with-param name="firstName" query-param="firstName"/>
+         <with-param name="lastName" query-param="lastName"/>
+         <with-param name="email" query-param="email"/>
+         <with-param name="salary" query-param="salary"/>
+      </call-query>
+   </resource>
+   <resource method="GET" path="/employee/{employeeNumber}">
+      <description/>
+      <call-query href="GetEmployee">
+         <with-param name="employeeNumber" query-param="employeeNumber"/>
+      </call-query>
+   </resource>
+   <resource method="GET" path="/employee">
+      <description/>
+      <call-query href="GetEmployees"/>
+   </resource>
+   <resource method="PUT" path="/employee">
+        <call-query href="UpdateEmployee">
+            <with-param name="employeeNumber" query-param="employeeNumber"/>
+            <with-param name="firstName" query-param="firstName"/>
+            <with-param name="lastName" query-param="lastName"/>
+            <with-param name="email" query-param="email"/>
+            <with-param name="salary" query-param="salary"/>
+        </call-query>
+    </resource>
+</data>

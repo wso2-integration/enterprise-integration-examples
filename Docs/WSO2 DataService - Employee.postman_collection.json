@@ -1,0 +1,135 @@
+{
+	"info": {
+		"_postman_id": "f729fd6a-7239-482e-827d-824bd97e5acb",
+		"name": "WSO2 DataService - Employee",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Employees",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:8243/services/RESTDataService/employee",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8243",
+					"path": [
+						"services",
+						"RESTDataService",
+						"employee"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Employee",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:8243/services/RESTDataService/employee/1",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8243",
+					"path": [
+						"services",
+						"RESTDataService",
+						"employee",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Employee",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"_postemployee\":{\n            \"employeeNumber\": \"2\",\n            \"firstName\": \"David\",\n            \"lastName\": \"Hussey\",\n            \"email\": \"David@doe.com\",\n            \"salary\": \"$8000\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:8243/services/RESTDataService/employee",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8243",
+					"path": [
+						"services",
+						"RESTDataService",
+						"employee"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Employee",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"_putemployee\":{\n            \"employeeNumber\": \"2\",\n            \"firstName\": \"DavidH\",\n            \"lastName\": \"HusseyV\",\n            \"email\": \"David.hussey@doe.com\",\n            \"salary\": \"$800\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:8243/services/RESTDataService/employee",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8243",
+					"path": [
+						"services",
+						"RESTDataService",
+						"employee"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
