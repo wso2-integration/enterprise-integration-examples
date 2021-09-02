@@ -130,6 +130,36 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Delete Employee",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"_deleteemployee\":{\n            \"employeeNumber\": 3\n    }\n}"
+				},
+				"url": {
+					"raw": "https://localhost:8243/services/RESTDataService/employee",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8243",
+					"path": [
+						"services",
+						"RESTDataService",
+						"employee"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
