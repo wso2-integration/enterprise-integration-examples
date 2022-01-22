@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><artifacts>
+    <artifact name="KAFKAListenerEP" groupId="com.example.kafka.inbound-endpoint" version="1.0.0" type="synapse/inbound-endpoint" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/inbound-endpoints/KAFKAListenerEP.xml</file>
+    </artifact>
+    <artifact name="TestIn" groupId="com.example.kafka.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/TestIn.xml</file>
+    </artifact>
+</artifacts>
